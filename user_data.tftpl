@@ -32,7 +32,7 @@ cat <<EOF > /etc/httpd/conf.d/app.conf
     # REDIRECT: Send all 'vendors' requests to CloudFront/S3
     # This prevents the PHP server from wasting resources on static files
     RewriteEngine On
-    RewriteRule ^vendors/(.*)$ https://\$${CLOUDFRONT_DOMAIN}/vendors/\$1 [R=301,L]
+    RewriteRule ^vendors/(.*)$ https://\$${CLOUDFRONT_DOMAIN}/staffleavebucket/\$1 [R=301,L]
 </VirtualHost>
 EOF
 

@@ -64,7 +64,7 @@ resource "aws_cloudfront_distribution" "main" {
   origin {
     # Use regional domain name (not global) to avoid
     # redirect issues and improve latency
-    domain_name = aws_s3_bucket.vendors_bucket.bucket_regional_domain_name
+    domain_name = data.aws_s3_bucket.vendors_bucket.bucket_regional_domain_name
     origin_id   = "vendors-origin"
 
     # Attach OAC so CloudFront can access private S3
