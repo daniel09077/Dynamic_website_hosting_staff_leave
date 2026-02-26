@@ -1,5 +1,5 @@
 resource "aws_s3_bucket_policy" "cloudfront_access" {
-  bucket = aws_s3_bucket.vendors_bucket.id
+  bucket = data.aws_s3_bucket.vendors_bucket.id
 
   # Must wait for distribution to exist before referencing its ID
   # depends_on = [aws_cloudfront_distribution.main]
@@ -14,7 +14,7 @@ resource "aws_s3_bucket_policy" "cloudfront_access" {
           Service = "cloudfront.amazonaws.com"
         }
         Action   = "s3:GetObject"
-        Resource = "${aws_s3_bucket.vendors_bucket.arn}/*"
+        Resource = "${data.aws_s3_bucket.vendors_bucket.arn}/*"
         Condition = {
           StringEquals = {
             # Scoped to THIS distribution only - no other CF can access bucket

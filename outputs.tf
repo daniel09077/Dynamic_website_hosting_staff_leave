@@ -30,7 +30,7 @@ output "rds_db_name" {
 
 output "s3_bucket_name" {
   description = "The ID of the S3 bucket used for vendor assets"
-  value       = aws_s3_bucket.vendors_bucket.id
+  value       = data.aws_s3_bucket.vendors_bucket.id
 }
 
 

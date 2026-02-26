@@ -11,7 +11,7 @@ data "aws_caller_identity" "current" {}
 # Signs every CloudFront → S3 request with SigV4
 # -------------------------------------------------------
 resource "aws_cloudfront_origin_access_control" "oac" {
-  name                              = "s3-oac-${aws_s3_bucket.vendors_bucket.id}"
+  name                              = "s3-oac-${data.aws_s3_bucket.vendors_bucket.id}"
   description                       = "OAC for CloudFront to access private S3 vendors bucket"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always" # Sign every request to S3
