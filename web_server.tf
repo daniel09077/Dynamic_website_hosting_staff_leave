@@ -11,7 +11,7 @@ resource "aws_instance" "web_servers" {
     db_name           = aws_db_instance.mysql.db_name
     db_user           = aws_db_instance.mysql.username
     cloudfront_domain = aws_cloudfront_distribution.main.domain_name
-    s3_bucket         = aws_s3_bucket.vendors_bucket.id
+    s3_bucket         = data.aws_s3_bucket.vendors_bucket.id
     db_password       = random_password.db_password.result
 
   })
