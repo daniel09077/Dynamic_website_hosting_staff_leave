@@ -11,6 +11,13 @@ resource "aws_security_group" "web_sg" {
     protocol        = "tcp"
     security_groups = [aws_security_group.alb_sg.id]
   }
+  ingress {
+    description     = "SSH from bastion_host"
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
+    security_groups = [aws_security_group.bastion_sg.id]
+  }
 
 
   # Allow outbound traffic (needed for yum, S3, etc.)

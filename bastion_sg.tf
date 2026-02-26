@@ -3,13 +3,13 @@ resource "aws_security_group" "bastion_sg" {
   description = "Allow traffic only from my IP"
   vpc_id      = aws_vpc.Staff_Leave_VPC.id
 
-  # Allow HTTP from my IP only 
+  # Allow SSH from my IP only 
   ingress {
-    description = "HTTP from my IP"
-    from_port   = 80
-    to_port     = 80
+    description = "ssh from my IP"
+    from_port   = 22
+    to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["105.117.8.226/32"]
+    cidr_blocks = ["105.112.18.48/32"]
   }
 
 
