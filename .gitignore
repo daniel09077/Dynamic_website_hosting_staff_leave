@@ -1,0 +1,24 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+*.pem
+# Variables / secrets
+*.tfvars
+*.tfvars.json
+.env
+.jpg
+.png
+# Python
+__pycache__/
+*.pyc
+
+# OS junk
+.DS_Store
+.terraform/
