@@ -55,6 +55,6 @@ find /var/www/html -type f -exec chmod 644 {} \;
 echo "--- 5. Finalizing Environment ---"
 # Optional: Inject DB Host into your PHP config if you use a .env or config file
  #sed -i "s/localhost/\$${DB_HOST}/g" /var/www/html/config.php
-
+key_name        = aws_key_pair.generated_key.key_name
 systemctl restart httpd
 echo "Deployment completed successfully."
